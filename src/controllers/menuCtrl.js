@@ -2,8 +2,11 @@ const { httpError } = require('../helpers');
 const { Menu } = require('../db');
 
 const getByCategory = async (req, res, next) => {
-    const { category, shop } = req.body;
+    const { data } = req.query;
+    const { category, shop } = JSON.parse(data);
+
     const menu = await Menu.find({ category, shop });
+    console.log({ menu });
 
     if (!menu) {
         return next(httpError(404));
