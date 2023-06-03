@@ -17,7 +17,7 @@ const getAllBySHopId = async (req, res, next) => {
         return next(httpError(404));
     }
 
-    res.status(200).json({ menu, totalHints });
+    res.status(200).json({ menu, totalHints, page });
 };
 
 const getByCategory = async (req, res, next) => {
@@ -36,7 +36,7 @@ const getByCategory = async (req, res, next) => {
         return next(httpError(404));
     }
 
-    res.status(200).json({ menu, totalHints });
+    res.status(200).json({ menu, totalHints, page });
 };
 
 const getById = async (req, res, next) => {
